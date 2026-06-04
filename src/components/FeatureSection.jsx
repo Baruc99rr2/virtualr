@@ -11,7 +11,7 @@ const FeatureSection = () => {
     "cat info_base.txt\n" +
     "Somos un equipo que se adapta a tu presupuesto para ayudarte a digitalizarte, nos apasiona el diseño y el espiritu de emprendedurismo, superacion y esfuerzo, te acompañamos en tu proceso de crecimiento.\n\n" +
     "C:\\Users\\AboutUs> cat info_academic.txt\n" +
-    "Nos graduamos en 2025 de la UNJU facultad de ingenieria, de la carrera tecnicatura de diseño integral de videojuegos, nos apasiona los videojuegos y la programacion.";
+    "En 2025 nos graduamos como Técnicos en Diseño Integral de Videojuegos en la Facultad de Ingeniería de la Universidad Nacional de Jujuy. Contamos con una fuerte pasión por los videojuegos y un sólido interés en la programación orientada al desarrollo de experiencias interactivas";
   
   const [typedText, setTypedText] = useState("");
   const [isTextResetting, setIsTextResetting] = useState(false);
