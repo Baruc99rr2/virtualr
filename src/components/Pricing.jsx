@@ -115,10 +115,10 @@ const Pricing = () => {
               [ SELECT_YOUR_QUEST ]
             </span>
             <h2 className="font-arcade mt-4 tracking-wide text-white animate-text-subtle pricing-title-responsive whitespace-nowrap">
-              TABLÓN DE PRECIOS
+              PRECIOS
             </h2>
             <p className="text-neutral-400 font-mono text-[10px] sm:text-[11px] mt-2 max-w-xl mx-auto uppercase tracking-wider">
-              Elegí el módulo de desarrollo para iniciar la secuencia de despliegue.
+              Elegí uno de nuestros servicios
             </p>
           </div>
 
@@ -144,7 +144,7 @@ const Pricing = () => {
                 
                 <div className="flex items-baseline text-white mt-1 mb-3 border-b border-cyan-900/30 pb-2 shrink-0">
                   <span className="font-bold font-arcade text-yellow-400 pricing-price-responsive">$50.000</span>
-                  <span className="text-neutral-400 text-[9px] ml-2 uppercase font-bold tracking-wider">[PAGO ÚNICO]</span>
+                  <span className="text-neutral-500/80 text-[7px] ml-2 uppercase font-mono font-medium tracking-wide">[PAGO ÚNICO]</span>
                 </div>
                 
                 {/* LISTA CON SCROLL INTEGRADO EN CELULARES */}
@@ -208,7 +208,7 @@ const Pricing = () => {
                 
                 <div className="flex items-baseline text-white mt-1 mb-3 border-b border-red-900/30 pb-2 shrink-0">
                   <span className="font-bold font-arcade text-red-400 uppercase pricing-price-responsive">A MEDIDA</span>
-                  <span className="text-neutral-400 text-[9px] ml-2 uppercase font-bold tracking-wider">[PRESUPUESTO]</span>
+                  <span className="text-neutral-500/80 text-[7px] ml-2 uppercase font-mono font-medium tracking-wide">[PRESUPUESTO]</span>
                 </div>
 
                 {/* CUERPO CON SCROLL INTEGRADO EN CELULARES */}

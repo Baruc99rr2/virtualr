@@ -71,9 +71,10 @@ const Workflow = () => {
           box-shadow: 0 0 8px rgba(244, 114, 182, 0.8), 0 0 15px rgba(34, 211, 238, 0.5) !important;
         }
 
-        /* ESCALADO FLUIDO DEL TÍTULO: Mínimo 14px en móviles, escala a 2.5vw de la pantalla, máximo 36px en 1920px o más */
+        {/* CORRECCIÓN AJUSTE ULTRA COMPACTO PARA TÍTULO LARGO 
+            Mínimo de 13px en móviles muy chicos, escala fluido a 1.8vw y frena en un máximo de 28px */}
         .skills-title-responsive {
-          font-size: clamp(14px, 2.5vw, 36px);
+          font-size: clamp(13px, 1.8vw, 28px);
         }
       `}</style>
 
@@ -94,7 +95,6 @@ const Workflow = () => {
         <span className="bg-neutral-900 text-cyan-400 border border-cyan-500/30 rounded-full h-6 text-[10px] sm:text-xs font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(34,211,238,0.15)] select-none">
           [ SYSTEM_SKILL_TREE ]
         </span>
-        {/* Se implementa la clase responsiva y el bloqueo de salto con whitespace-nowrap */}
         <h2 className="font-arcade mt-4 tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive whitespace-nowrap uppercase w-full text-center">
           NUESTROS CONOCIMIENTOS
         </h2>
@@ -103,7 +103,7 @@ const Workflow = () => {
       {/* CONTENEDOR DEL ÁRBOL */}
       <div className="w-full max-w-5xl flex flex-col items-center relative z-2">
         
-        {/* NODO CENTRAL REBAJADO A Z-2 */}
+        {/* NODO CENTRAL */}
         <div 
           className={`z-2 mb-10 p-3 bg-[#020712] border-2 font-mono text-center select-none cursor-pointer tracking-wider rounded-sm transition-all duration-200
             ${activeNode === "core" 
