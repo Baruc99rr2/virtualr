@@ -27,7 +27,6 @@ const Workflow = () => {
   };
 
   return (
-    // CORRECCIÓN: Se setea la sección completa con z-10 controlado
     <div id="skills" className="relative mt-20 pb-20 min-h-[900px] flex flex-col items-center px-2 sm:px-4 overflow-hidden bg-black bg-[linear-gradient(to_right,#091426_1px,transparent_1px),linear-gradient(to_bottom,#091426_1px,transparent_1px)] bg-[size:4rem_4rem] scroll-mt-24 z-10">
       
       <style>{`
@@ -71,6 +70,11 @@ const Workflow = () => {
           background: linear-gradient(to top, rgba(244, 114, 182, 0.7) 0%, rgba(34, 211, 238, 0.4) 60%, transparent 100%) !important;
           box-shadow: 0 0 8px rgba(244, 114, 182, 0.8), 0 0 15px rgba(34, 211, 238, 0.5) !important;
         }
+
+        /* ESCALADO FLUIDO DEL TÍTULO: Mínimo 14px en móviles, escala a 2.5vw de la pantalla, máximo 36px en 1920px o más */
+        .skills-title-responsive {
+          font-size: clamp(14px, 2.5vw, 36px);
+        }
       `}</style>
 
       {/* CAPA DE NAVES (z-1 para que queden al fondo de todo) */}
@@ -85,12 +89,13 @@ const Workflow = () => {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.85)_100%)] pointer-events-none z-2" />
 
-      {/* TÍTULO */}
-      <div className="text-center mb-10 z-2">
-        <span className="bg-neutral-900 text-cyan-400 border border-cyan-500/30 rounded-full h-6 text-xs font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+      {/* TÍTULO MODIFICADO CON ESCALADO DE PRECISIÓN */}
+      <div className="text-center mb-10 z-2 w-full px-4 flex flex-col items-center justify-center">
+        <span className="bg-neutral-900 text-cyan-400 border border-cyan-500/30 rounded-full h-6 text-[10px] sm:text-xs font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(34,211,238,0.15)] select-none">
           [ SYSTEM_SKILL_TREE ]
         </span>
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-arcade mt-4 tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+        {/* Se implementa la clase responsiva y el bloqueo de salto con whitespace-nowrap */}
+        <h2 className="font-arcade mt-4 tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive whitespace-nowrap uppercase w-full text-center">
           NUESTROS CONOCIMIENTOS
         </h2>
       </div>

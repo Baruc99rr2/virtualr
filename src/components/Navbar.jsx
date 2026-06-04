@@ -66,28 +66,30 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
           
-          {/* LOGO E IDENTIDAD AGRANDADOS */}
-          <a 
-            href="#" 
-            onClick={scrollToTop}
-            className="flex items-center flex-shrink-0 cursor-pointer group gap-3"
-          >
-            <div className="relative">
-              {/* CORRECCIÓN: Logo agrandado de h-8 a h-12 (con reducción fluida en scroll) */}
-              <img 
-                className={`transition-all duration-500 group-hover:rotate-180 ${
-                  isScrolled ? "h-10 w-10" : "h-12 w-12"
-                }`} 
-                src={logo} 
-                alt="SkyTech Logo" 
-              />
-              <div className="absolute inset-0 bg-cyan-500/30 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <span className="text-xl font-black text-white tracking-wider flex items-center">
-              SkyTech
-              <span className="text-cyan-400 font-bold ml-0.5 animate-pulse">_</span>
-            </span>
-          </a>
+          {/* LOGO E IDENTIDAD */}
+        <a 
+          href="#" 
+          onClick={scrollToTop}
+          className="flex items-center flex-shrink-0 cursor-pointer group gap-3 animate-none"
+        >
+          <div className="relative">
+            <img 
+              className={`transition-all duration-500 ${
+                isScrolled ? "h-10 w-10" : "h-12 w-12"
+              }`} 
+              src={logo} 
+              alt="SkyTech Logo" 
+            />
+            {/* CORRECCIÓN DE PERSISTENCIA TÁCTIL: 
+                - md:group-hover solo activa el brillo continuo con el mouse en PC.
+                - group-active hace que en celular brille SOLO mientras el dedo está presionando. */}
+            <div className="absolute inset-0 bg-cyan-500/30 blur-md rounded-full opacity-0 md:group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-150"></div>
+          </div>
+          <span className="text-xl font-black text-white tracking-wider flex items-center">
+            SkyTech
+            <span className="text-cyan-400 font-bold ml-0.5 animate-pulse">_</span>
+          </span>
+        </a>
 
           {/* MENU DESKTOP */}
           <ul className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
