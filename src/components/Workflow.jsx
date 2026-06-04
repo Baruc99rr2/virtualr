@@ -95,9 +95,9 @@ const Workflow = () => {
         <span className="bg-neutral-900 text-cyan-400 border border-cyan-500/30 rounded-full h-6 text-[10px] sm:text-xs font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(34,211,238,0.15)] select-none">
           [ SYSTEM_SKILL_TREE ]
         </span>
-        <h2 className="font-arcade mt-4 tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive whitespace-nowrap uppercase w-full text-center">
-          NUESTROS CONOCIMIENTOS
-        </h2>
+          <h2 className="font-arcade mt-4 tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive whitespace-nowrap uppercase w-full text-center">
+            NUESTROS CONOCIMIENTOS
+          </h2>
       </div>
 
       {/* CONTENEDOR DEL ÁRBOL */}
