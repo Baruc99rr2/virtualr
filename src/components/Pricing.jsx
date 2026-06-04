@@ -182,7 +182,7 @@ const Pricing = () => {
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[11px] tracking-wider bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black shadow-[0_0_15px_rgba(34,211,238,0.1)] transition-all duration-150 uppercase rounded-sm"
                 >
-                  ACEPTAR MISIÓN
+                  Solicitar miniweb
                 </a>
               </div>
               <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-cyan-400" />
