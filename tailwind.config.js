@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Esto te permite usar la clase 'font-arcade' en tu proyecto
         arcade: ["'Press Start 2P'", "monospace"],
+        terminal: ["'Share Tech Mono'", "monospace"], // Opcional: para textos periféricos livianos
       },
       keyframes: {
         scanline: {
@@ -14,7 +14,6 @@ export default {
         },
       },
       animation: {
-        // Configuración de la animación para usarla directamente si querés
         scanline: "scanline 8s ease-in-out infinite",
       },
     },
