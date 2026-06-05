@@ -53,15 +53,15 @@ const Pricing = () => {
             pointer-events: none;
           }
 
-          /* LOGIC RESIZING TITLES: Reducción fluida por debajo de 1920px */
+          /* LOGIC RESIZING TITLES: Optimizados para pantallas críticas de 320px */
           .pricing-title-responsive {
-            font-size: clamp(18px, 2.5vw, 36px);
+            font-size: clamp(16px, 2.5vw, 36px);
           }
           .pricing-card-title-responsive {
-            font-size: clamp(16px, 1.8vw, 24px);
+            font-size: clamp(14px, 1.8vw, 24px);
           }
           .pricing-price-responsive {
-            font-size: clamp(20px, 2.2vw, 30px);
+            font-size: clamp(18px, 2.2vw, 30px);
           }
 
           /* FLUID TEXT FOR CARDS (MOBILE CONFIG) */
@@ -70,11 +70,11 @@ const Pricing = () => {
           }
           @media (min-width: 768px) {
             .pricing-fluid-text {
-              font-size: 12px; /* Forzado limpio para escritorio */
+              font-size: 12px;
             }
           }
 
-          /* Ocultar barra de scroll en las listas internas si desbordan en móviles */
+          /* Ocultar barra de scroll en las listas internas */
           .no-scrollbar::-webkit-scrollbar {
             display: none;
           }
@@ -85,7 +85,7 @@ const Pricing = () => {
         `}</style>
 
         {/* CONTENEDOR INTERNO */}
-        <div className="relative pb-16 pt-8 flex flex-col items-center px-4 overflow-hidden min-h-[600px] bg-black bg-[linear-gradient(to_right,#081529_1px,transparent_1px),linear-gradient(to_bottom,#081529_1px,transparent_1px)] bg-[size:3rem_3rem] rounded-2xl">
+        <div className="relative pb-16 pt-8 flex flex-col items-center px-2 sm:px-4 overflow-hidden min-h-[600px] bg-black bg-[linear-gradient(to_right,#081529_1px,transparent_1px),linear-gradient(to_bottom,#081529_1px,transparent_1px)] bg-[size:3rem_3rem] rounded-2xl">
           
           {/* FILTROS CRT */}
           <div className="absolute inset-0 crt-interlace-soft pointer-events-none z-10" />
@@ -109,12 +109,12 @@ const Pricing = () => {
             </div>
           </div>
 
-          {/* TÍTULO PRINCIPAL RESPONSIVO */}
+          {/* TÍTULO PRINCIPAL RESPONSIVO CORREGIDO */}
           <div className="text-center mb-8 z-10 px-2 animate-flicker-ui-safe w-full flex flex-col items-center">
-            <span className="bg-neutral-950 text-yellow-400 border border-yellow-500/30 rounded-full h-6 text-[10px] font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.15)] select-none">
+            <span className="bg-neutral-950 text-yellow-400 border border-yellow-500/30 rounded-full text-[8px] xs:text-[10px] font-mono font-bold px-2.5 py-1 uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.15)] select-none">
               [ SELECT_YOUR_QUEST ]
             </span>
-            <h2 className="font-arcade mt-4 tracking-wide text-white animate-text-subtle pricing-title-responsive whitespace-nowrap">
+            <h2 className="font-arcade mt-4 tracking-wide text-white animate-text-subtle pricing-title-responsive uppercase text-center w-full">
               PRECIOS
             </h2>
             <p className="text-neutral-400 font-mono text-[10px] sm:text-[11px] mt-2 max-w-xl mx-auto uppercase tracking-wider">
@@ -128,7 +128,7 @@ const Pricing = () => {
             {/* TARJETA 1 - MINIWEB */}
             <div 
               style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
-              className="relative bg-[#020612]/90 backdrop-blur-sm border-2 border-cyan-500/40 p-4 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] group rounded-sm md:h-[450px] overflow-hidden shrink-0"
+              className="relative bg-[#020612]/90 backdrop-blur-sm border-2 border-cyan-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] group rounded-sm md:h-[450px] overflow-hidden shrink-0"
             >
               <div className="flex flex-col flex-1 min-h-0">
                 <div className="flex justify-between items-center mb-2 shrink-0">
@@ -142,9 +142,10 @@ const Pricing = () => {
                   MINIWEB
                 </h3>
                 
-                <div className="flex items-baseline text-white mt-1 mb-3 border-b border-cyan-900/30 pb-2 shrink-0">
+                {/* CORRECCIÓN: flex-col en celulares para que [PAGO ÚNICO] no salte feo ni toque el borde */}
+                <div className="flex flex-col xs:flex-row xs:items-baseline text-white mt-1 mb-3 border-b border-cyan-900/30 pb-2 shrink-0">
                   <span className="font-bold font-arcade text-yellow-400 pricing-price-responsive">$50.000</span>
-                  <span className="text-neutral-500/80 text-[7px] ml-2 uppercase font-mono font-medium tracking-wide">[PAGO ÚNICO]</span>
+                  <span className="text-neutral-500/80 text-[7px] mt-0.5 xs:mt-0 xs:ml-2 uppercase font-mono font-medium tracking-wide">[PAGO ÚNICO]</span>
                 </div>
                 
                 {/* LISTA CON SCROLL INTEGRADO EN CELULARES */}
@@ -192,7 +193,7 @@ const Pricing = () => {
             {/* TARJETA 2 - SISTEMA CUSTOM */}
             <div 
               style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
-              className="relative bg-[#06020c]/90 backdrop-blur-sm border-2 border-red-500/40 p-4 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-red-500 hover:bg-[#0d0517]/90 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group rounded-sm md:h-[450px] overflow-hidden shrink-0"
+              className="relative bg-[#06020c]/90 backdrop-blur-sm border-2 border-red-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-red-500 hover:bg-[#0d0517]/90 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group rounded-sm md:h-[450px] overflow-hidden shrink-0"
             >
               <div className="flex flex-col flex-1 min-h-0">
                 <div className="flex justify-between items-center mb-2 shrink-0">
@@ -206,9 +207,9 @@ const Pricing = () => {
                   SISTEMA CUSTOM
                 </h3>
                 
+                {/* CORRECCIÓN: Removemos la etiqueta redundante [PRESUPUESTO] para limpiar espacio lateral */}
                 <div className="flex items-baseline text-white mt-1 mb-3 border-b border-red-900/30 pb-2 shrink-0">
                   <span className="font-bold font-arcade text-red-400 uppercase pricing-price-responsive">A MEDIDA</span>
-                  <span className="text-neutral-500/80 text-[7px] ml-2 uppercase font-mono font-medium tracking-wide">[PRESUPUESTO]</span>
                 </div>
 
                 {/* CUERPO CON SCROLL INTEGRADO EN CELULARES */}
@@ -243,9 +244,11 @@ const Pricing = () => {
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${customMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[11px] tracking-wider bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-black shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-150 uppercase rounded-sm"
+                  className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[10px] xs:text-[11px] tracking-wider bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-black shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-150 uppercase rounded-sm px-1"
                 >
-                  SOLICITAR PRESUPUESTO
+                  {/* CORRECCIÓN: Texto adaptativo impecable sin cortes rotos */}
+                  <span className="xs:block hidden">Solicitar presupuesto</span>
+                  <span className="xs:hidden block">Presupuestar</span>
                 </a>
               </div>
               <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-500" />

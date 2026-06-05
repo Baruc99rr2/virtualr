@@ -71,14 +71,13 @@ const Workflow = () => {
           box-shadow: 0 0 8px rgba(244, 114, 182, 0.8), 0 0 15px rgba(34, 211, 238, 0.5) !important;
         }
 
-        {/* CORRECCIÓN AJUSTE ULTRA COMPACTO PARA TÍTULO LARGO 
-            Mínimo de 13px en móviles muy chicos, escala fluido a 1.8vw y frena en un máximo de 28px */}
+        /* CORRECCIÓN: Optimizamos el clamp para que baje fluidamente hasta pantallas de 320px sin romperse */
         .skills-title-responsive {
-          font-size: clamp(13px, 1.8vw, 28px);
+          font-size: clamp(15px, 4.5vw, 36px);
         }
       `}</style>
 
-      {/* CAPA DE NAVES (z-1 para que queden al fondo de todo) */}
+      {/* CAPA DE NAVES */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-1">
         <div className="retro-space-ship" style={{ left: '7%',  animationDuration: '6s',  animationDelay: '0s' }}>🛸</div>
         <div className="retro-space-ship ship-pink" style={{ left: '22%', animationDuration: '8s',  animationDelay: '3.5s' }}>👾</div>
@@ -90,14 +89,15 @@ const Workflow = () => {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.85)_100%)] pointer-events-none z-2" />
 
-      {/* TÍTULO MODIFICADO CON ESCALADO DE PRECISIÓN */}
+      {/* TÍTULO MODIFICADO */}
       <div className="text-center mb-10 z-2 w-full px-4 flex flex-col items-center justify-center">
         <span className="bg-neutral-900 text-cyan-400 border border-cyan-500/30 rounded-full h-6 text-[10px] sm:text-xs font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(34,211,238,0.15)] select-none">
           [ SYSTEM_SKILL_TREE ]
         </span>
-          <h2 className="font-arcade mt-4 tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive whitespace-nowrap uppercase w-full text-center">
-            NUESTROS CONOCIMIENTOS
-          </h2>
+        {/* CORRECCIÓN: Eliminamos 'whitespace-nowrap' y agregamos un tracking adaptativo */}
+        <h2 className="font-arcade mt-4 tracking-normal sm:tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive uppercase w-full text-center px-2">
+          Nuestros conocimientos
+        </h2>
       </div>
 
       {/* CONTENEDOR DEL ÁRBOL */}

@@ -14,7 +14,6 @@ const MOBILE_SETTINGS = {
 const FeatureSection = () => {
   const fullTitle = "ACERCA DE NOSOTROS";
   const [titleText, setTitleText] = useState("");
-  const [isTitleDeleting, setIsTitleDeleting] = useState(false);
   const [titleSpeed, setTitleSpeed] = useState(100);
 
   const fullText = 
@@ -24,50 +23,34 @@ const FeatureSection = () => {
     "En 2025 nos graduamos en la UNJu Facultad de Ingenieria, consolidando nuestra profunda pasión por la programación";
   
   const [typedText, setTypedText] = useState("");
-  const [isTextResetting, setIsTextResetting] = useState(false);
 
+  // EFECTO EFICIENTE: Escritura del título (Corre una sola vez)
   useEffect(() => {
+    if (titleText === fullTitle) return; // Se clava acá cuando termina de escribir
+
     const handleTitleType = () => {
-      if (!isTitleDeleting) {
-        setTitleText(fullTitle.substring(0, titleText.length + 1));
-        if (titleText === fullTitle) {
-          setTitleSpeed(2500);
-          setIsTitleDeleting(true);
-        } else {
-          setTitleSpeed(100);
-        }
-      } else {
-        setTitleText(fullTitle.substring(0, titleText.length - 1));
-        if (titleText === "") {
-          setIsTitleDeleting(false);
-          setTitleSpeed(500);
-        } else {
-          setTitleSpeed(50);
-        }
-      }
+      setTitleText(fullTitle.substring(0, titleText.length + 1));
     };
+
     const titleTimer = setTimeout(handleTitleType, titleSpeed);
     return () => clearTimeout(titleTimer);
-  }, [titleText, isTitleDeleting, titleSpeed]);
+  }, [titleText, titleSpeed]);
 
+  // EFECTO EFICIENTE: Escritura del texto de la terminal (Sin setTimeout cíclico ni resets)
   useEffect(() => {
-    if (isTextResetting) return;
     let textIndex = 0;
+    
     const textInterval = setInterval(() => {
       if (textIndex <= fullText.length) {
         setTypedText(fullText.substring(0, textIndex));
         textIndex++;
       } else {
-        clearInterval(textInterval);
-        setIsTextResetting(true);
-        setTimeout(() => {
-          setTypedText("");
-          setIsTextResetting(false);
-        }, 15000);
+        clearInterval(textInterval); // Limpia el intervalo para siempre cuando termina
       }
     }, 25);
+
     return () => clearInterval(textInterval);
-  }, [isTextResetting]);
+  }, []);
 
   return (
     <div id="about" className="relative pt-12 pb-20 min-h-[500px] flex flex-col items-center scroll-mt-24 w-full z-10">
@@ -82,7 +65,7 @@ const FeatureSection = () => {
           animation: subtle-float 4s ease-in-out infinite;
         }
         
-        /* LOGIC RESIZING: El título se encoje fluidamente (mínimo 14px, escala a 2.5vw, máximo de 36px en 1920px o superior) */
+        /* LOGIC RESIZING: El título se encoje fluidamente */
         .about-title-responsive {
           font-size: clamp(14px, 2.5vw, 36px);
         }
@@ -109,10 +92,9 @@ const FeatureSection = () => {
 
       {/* TÍTULO PRINCIPAL CON CLASE RESPONSIVA FLUIDA */}
       <div className="text-center mb-6 md:mb-10 select-none h-[40px] flex items-center justify-center w-full px-4">
-        {/* Cambiado por about-title-responsive y whitespace-nowrap para impedir saltos */}
         <h2 className="font-arcade tracking-wide text-white about-title-responsive whitespace-nowrap">
           {titleText === "" ? "\u00A0" : titleText}
-          <span className="animate-pulse text-cyan-400">_</span>
+          {titleText !== fullTitle && <span className="animate-pulse text-cyan-400">_</span>}
         </h2>
       </div>
 
@@ -147,7 +129,7 @@ const FeatureSection = () => {
 
         {/* CONTENEDOR POWERSHELL */}
         <div 
-          style={{ height: window.innerWidth < 768 ? MOBILE_SETTINGS.containerHeight : undefined }}
+          style={{ height: typeof window !== "undefined" && window.innerWidth < 768 ? MOBILE_SETTINGS.containerHeight : undefined }}
           className="w-full max-w-[450px] md:max-w-none md:flex-1 md:h-[450px] rounded-lg overflow-hidden shadow-2xl border border-blue-900/50 shadow-cyan-500/5 flex flex-col min-w-0 order-2 md:order-none shrink-0"
         >
           {/* Barra superior de PowerShell */}
@@ -175,7 +157,9 @@ const FeatureSection = () => {
               <span className="text-yellow-400 font-bold">C:\Users\AboutUs&gt;</span>
               {typedText}
             </p>
-            <span className="animate-pulse bg-neutral-200 text-neutral-200 ml-1 inline-block w-1.5 h-3.5 align-middle">&nbsp;</span>
+            {typedText.length < fullText.length && (
+              <span className="animate-pulse bg-neutral-200 text-neutral-200 ml-1 inline-block w-1.5 h-3.5 align-middle">&nbsp;</span>
+            )}
           </div>
         </div>
 
