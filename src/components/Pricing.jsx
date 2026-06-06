@@ -12,6 +12,7 @@ const PRICING_SETTINGS = {
 
 const Pricing = () => {
   const WHATSAPP_NUMBER = "543885174084";
+  const infoWebMessage = encodeURIComponent("Hello! I would like to get my Business Showcase Web.");
   const miniWebMessage = encodeURIComponent("Hello! I would like to get my Express Web.");
   const customMessage = encodeURIComponent("Hello! I am interested in requesting a quote for a custom development or video game.");
 
@@ -71,7 +72,7 @@ const Pricing = () => {
           }
           @media (min-width: 768px) {
             .pricing-fluid-text {
-              font-size: 12px;
+              font-size: 11px;
             }
           }
 
@@ -100,12 +101,12 @@ const Pricing = () => {
           <div className="w-full max-w-4xl flex justify-between items-center font-mono text-[9px] text-cyan-500/60 px-2 mb-6 select-none z-10 animate-flicker-ui-safe">
             <div className="space-y-0.5">
               <p className="font-bold tracking-widest text-cyan-400">// SYS_STATUS: OPERATIONAL</p>
-              <p className="hidden sm:block">CPU_LOAD: 12.8% | MEM_ALLOC: 2048MB</p>
+              <p className="hidden sm:block">CPU_LOAD: 14.2% | MEM_ALLOC: 2048MB</p>
               <p>LOC: 24.180°S | 65.299°W</p>
             </div>
             <div className="text-right space-y-0.5">
               <p className="font-bold tracking-widest text-red-400">// GUILD_RANK: PLATINUM_II</p>
-              <p className="hidden sm:block">ACTIVE_QUESTS: [02/02] | CONTRACTS: 47</p>
+              <p className="hidden sm:block">ACTIVE_QUESTS: [03/03] | CONTRACTS: 49</p>
               <p className="text-emerald-500">● MONITOR_REFRESH: 60Hz</p>
             </div>
           </div>
@@ -124,18 +125,85 @@ const Pricing = () => {
           </div>
 
           {/* CARDS CONTAINER */}
-          <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 px-2 z-10">
+          <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6 px-2 z-10">
             
-            {/* CARD 1 - EXPRESS WEB */}
+            {/* CARD 1 - BUSINESS SHOWCASE */}
             <div 
               style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
-              className="relative bg-[#020612]/90 backdrop-blur-sm border-2 border-cyan-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
+              className="relative bg-[#020c08]/90 backdrop-blur-sm border-2 border-emerald-500/40 p-3.5 sm:p-5 font-mono flex flex-col justify-between transition-all duration-200 hover:border-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
+            >
+              <div className="flex flex-col flex-1 min-h-0">
+                <div className="flex justify-between items-center mb-2 shrink-0">
+                  <span className="text-[9px] sm:text-[10px] font-bold text-emerald-400 tracking-widest">// QUEST_TYPE: INFO</span>
+                  <span className="text-[10px] sm:text-xs font-bold font-arcade px-2 py-0.5 bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 rounded">
+                    RANK B
+                  </span>
+                </div>
+                
+                <h3 className="font-arcade text-white mb-1 tracking-wide group-hover:text-emerald-400 transition-colors pricing-card-title-responsive shrink-0">
+                  BUSINESS SHOWCASE
+                </h3>
+                
+                <div className="flex flex-col xs:flex-row xs:items-baseline text-white mt-1 mb-3 border-b border-emerald-900/30 pb-2 shrink-0">
+                  <span className="font-bold font-arcade text-yellow-400 pricing-price-responsive">$150</span>
+                  <span className="text-neutral-500/80 text-[7px] mt-0.5 xs:mt-0 xs:ml-2 uppercase font-mono font-medium tracking-wide">[ONE-TIME PAYMENT]</span>
+                </div>
+                
+                <div className="flex-1 overflow-y-auto no-scrollbar pr-1">
+                  <ul className="space-y-2.5 text-neutral-200 pricing-fluid-text">
+                    <li className="flex items-center space-x-2">
+                      <ChevronRight className="text-emerald-400 w-3.5 h-3.5 shrink-0" />
+                      <span>Business details & profile showcase</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <ChevronRight className="text-emerald-400 w-3.5 h-3.5 shrink-0" />
+                      <span>Contact options & map location</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <ChevronRight className="text-emerald-400 w-3.5 h-3.5 shrink-0" />
+                      <span>Social media links integration</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <ChevronRight className="text-emerald-400 w-3.5 h-3.5 shrink-0" />
+                      <span>Clean aesthetic layout with images</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <ChevronRight className="text-emerald-400 w-3.5 h-3.5 shrink-0" />
+                      <span>Hosting & infrastructure setup</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-4 shrink-0 flex flex-col gap-2">
+                <div className="text-[8px] sm:text-[9px] text-emerald-600/80 mb-0.5 font-bold tracking-widest">ENERGY_REQUIRED: [█░░░░░░░░]</div>
+                
+                {/* INVISIBLE SPACER TO MAINTAIN ALIGNMENT WITH CARD 2 IN DESKTOP */}
+                <div className="h-10 w-full opacity-0 pointer-events-none hidden md:block" />
+
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${infoWebMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[11px] tracking-wider bg-transparent border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black shadow-[0_0_15px_rgba(52,211,153,0.1)] transition-all duration-150 uppercase rounded-sm"
+                >
+                  Request Showcase Web
+                </a>
+              </div>
+              <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-400" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-emerald-400" />
+            </div>
+
+            {/* CARD 2 - EXPRESS WEB */}
+            <div 
+              style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
+              className="relative bg-[#020612]/90 backdrop-blur-sm border-2 border-cyan-500/40 p-3.5 sm:p-5 font-mono flex flex-col justify-between transition-all duration-200 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
             >
               <div className="flex flex-col flex-1 min-h-0">
                 <div className="flex justify-between items-center mb-2 shrink-0">
                   <span className="text-[9px] sm:text-[10px] font-bold text-cyan-400 tracking-widest">// QUEST_TYPE: LANDING</span>
                   <span className="text-[10px] sm:text-xs font-bold font-arcade px-2 py-0.5 bg-cyan-950/80 border border-cyan-500/50 text-cyan-400 rounded">
-                    RANK D
+                    RANK A
                   </span>
                 </div>
                 
@@ -144,11 +212,10 @@ const Pricing = () => {
                 </h3>
                 
                 <div className="flex flex-col xs:flex-row xs:items-baseline text-white mt-1 mb-3 border-b border-cyan-900/30 pb-2 shrink-0">
-                  <span className="font-bold font-arcade text-yellow-400 pricing-price-responsive">$50.000</span>
+                  <span className="font-bold font-arcade text-yellow-400 pricing-price-responsive">$200</span>
                   <span className="text-neutral-500/80 text-[7px] mt-0.5 xs:mt-0 xs:ml-2 uppercase font-mono font-medium tracking-wide">[ONE-TIME PAYMENT]</span>
                 </div>
                 
-                {/* MOBILE LIST WITH INTEGRATED SCROLL */}
                 <div className="flex-1 overflow-y-auto no-scrollbar pr-1">
                   <ul className="space-y-2.5 text-neutral-200 pricing-fluid-text">
                     <li className="flex items-center space-x-2">
@@ -175,11 +242,9 @@ const Pricing = () => {
                 </div>
               </div>
 
-              {/* ACTION BUTTONS */}
               <div className="mt-4 shrink-0 flex flex-col gap-2">
                 <div className="text-[8px] sm:text-[9px] text-cyan-600/80 mb-0.5 font-bold tracking-widest">ENERGY_REQUIRED: [██░░░░░░░░]</div>
                 
-                {/* NEW PREVIEW DEMO BUTTON */}
                 <a
                   href="https://demo-web-category.vercel.app"
                   target="_blank"
@@ -189,7 +254,6 @@ const Pricing = () => {
                   <span className="animate-pulse">View Live Demo</span>
                 </a>
 
-                {/* ORIGINAL REQUEST BUTTON */}
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${miniWebMessage}`}
                   target="_blank"
@@ -203,10 +267,10 @@ const Pricing = () => {
               <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-cyan-400" />
             </div>
 
-            {/* CARD 2 - CUSTOM SYSTEM */}
+            {/* CARD 3 - CUSTOM SYSTEM */}
             <div 
               style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
-              className="relative bg-[#06020c]/90 backdrop-blur-sm border-2 border-red-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-red-500 hover:bg-[#0d0517]/90 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
+              className="relative bg-[#06020c]/90 backdrop-blur-sm border-2 border-red-500/40 p-3.5 sm:p-5 font-mono flex flex-col justify-between transition-all duration-200 hover:border-red-500 hover:bg-[#0d0517]/90 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
             >
               <div className="flex flex-col flex-1 min-h-0">
                 <div className="flex justify-between items-center mb-2 shrink-0">
@@ -224,47 +288,42 @@ const Pricing = () => {
                   <span className="font-bold font-arcade text-red-400 uppercase pricing-price-responsive">TAILORED</span>
                 </div>
 
-                {/* MOBILE BODY WITH INTEGRATED SCROLL */}
                 <div className="flex-1 overflow-y-auto no-scrollbar pr-1">
                   <p className="text-neutral-300 leading-relaxed mb-3 pricing-fluid-text">
-                    Looking for a robust web infrastructure, complex systems, or interactive video game development in C# (Unity)?
+                    Looking for robust web infrastructure, complex systems, or interactive video game development in C# (Unity)?
                   </p>
                   <ul className="space-y-2.5 text-neutral-200 pricing-fluid-text">
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Self-managed web applications</span>
+                      <span>Self-managed applications</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Complex databases and high security</span>
+                      <span>Databases & high security</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Interactive video game development</span>
+                      <span>Interactive game dev</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Advanced logic in C# architecture</span>
+                      <span>Advanced C# logic & architecture</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              {/* ACTION BUTTONS (Empujados al fondo para simetría con Card 1) */}
               <div className="mt-4 shrink-0 flex flex-col gap-2">
                 <div className="text-[8px] sm:text-[9px] text-red-600/80 mb-0.5 font-bold tracking-widest">ENERGY_REQUIRED: [██████████]</div>
                 
-                {/* SPACER TO MATCH HEIGHT SYMETRY */}
                 <div className="h-10 w-full opacity-0 pointer-events-none hidden md:block" />
 
-                {/* ORIGINAL REQUEST BUTTON */}
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${customMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[10px] xs:text-[11px] tracking-wider bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-black shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-150 uppercase rounded-sm px-1"
                 >
-                  {/* ADAPTIVE TEXT FOR MOBILE LAYOUTS */}
                   <span className="xs:block hidden">Request a quote</span>
                   <span className="xs:hidden block">Get Quote</span>
                 </a>
