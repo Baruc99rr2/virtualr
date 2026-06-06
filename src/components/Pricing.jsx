@@ -1,23 +1,24 @@
+import { useState } from "react";
 import { ChevronRight, Sword } from "lucide-react";
 
 // ==========================================
-// CONFIGURACIÓN MANUAL PARA CELULARES
-// Modificá estos valores para ajustar el Tablón de Precios a tu gusto sin romper el código.
+// MANUAL MOBILE SETTINGS
+// Modify these values to adjust the Pricing Board to your liking without breaking the code.
 // ==========================================
 const PRICING_SETTINGS = {
-  cardHeightMobile: "410px",      // Altura fija de las tarjetas cuando se apilan en celulares (evita que se estiren de más)
-  fontSizeMobile: "3.2vw",        // Tamaño de letra base para los textos y listas de las tarjetas en celular
+  cardHeightMobile: "460px",      // Increased slightly to perfectly fit both buttons on mobile
+  fontSizeMobile: "3.2vw",        // Base font size for mobile text and lists inside cards
 };
 
 const Pricing = () => {
   const WHATSAPP_NUMBER = "543885174084";
-  const miniWebMessage = encodeURIComponent("Hola! Me gustaría adquirir mi mini-web.");
-  const customMessage = encodeURIComponent("Hola! Me interesa solicitar un presupuesto para un desarrollo a medida o videojuego.");
+  const miniWebMessage = encodeURIComponent("Hello! I would like to get my Express Web.");
+  const customMessage = encodeURIComponent("Hello! I am interested in requesting a quote for a custom development or video game.");
 
   return (
     <div id="pricing" className="w-full max-w-5xl mx-auto my-6 px-4 relative z-10 scroll-mt-24">
       
-      {/* MARCO EXTERIOR */}
+      {/* OUTER FRAME */}
       <div className="relative border-[10px] border-neutral-800 bg-neutral-900 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_20px_rgba(0,0,0,0.9)] p-2 sm:p-4 overflow-hidden">
         
         <style>{`
@@ -53,7 +54,7 @@ const Pricing = () => {
             pointer-events: none;
           }
 
-          /* LOGIC RESIZING TITLES: Optimizados para pantallas críticas de 320px */
+          /* LOGIC RESIZING TITLES: Optimized for critical 320px screens */
           .pricing-title-responsive {
             font-size: clamp(16px, 2.5vw, 36px);
           }
@@ -74,7 +75,7 @@ const Pricing = () => {
             }
           }
 
-          /* Ocultar barra de scroll en las listas internas */
+          /* Hide scrollbar in internal lists */
           .no-scrollbar::-webkit-scrollbar {
             display: none;
           }
@@ -84,18 +85,18 @@ const Pricing = () => {
           }
         `}</style>
 
-        {/* CONTENEDOR INTERNO */}
+        {/* INTERNAL CONTAINER */}
         <div className="relative pb-16 pt-8 flex flex-col items-center px-2 sm:px-4 overflow-hidden min-h-[600px] bg-black bg-[linear-gradient(to_right,#081529_1px,transparent_1px),linear-gradient(to_bottom,#081529_1px,transparent_1px)] bg-[size:3rem_3rem] rounded-2xl">
           
-          {/* FILTROS CRT */}
+          {/* CRT FILTERS */}
           <div className="absolute inset-0 crt-interlace-soft pointer-events-none z-10" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.85)_100%)] pointer-events-none z-10" />
 
-          {/* LÍNEAS DE ESCANEO */}
+          {/* SCANLINES */}
           <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent pointer-events-none animate-scanline-crt-fixed z-10" />
           <div className="absolute inset-0 pointer-events-none animate-glow-crt-soft z-5" />
 
-          {/* TEXTOS PERIFÉRICOS */}
+          {/* PERIPHERAL TEXTS */}
           <div className="w-full max-w-4xl flex justify-between items-center font-mono text-[9px] text-cyan-500/60 px-2 mb-6 select-none z-10 animate-flicker-ui-safe">
             <div className="space-y-0.5">
               <p className="font-bold tracking-widest text-cyan-400">// SYS_STATUS: OPERATIONAL</p>
@@ -103,32 +104,32 @@ const Pricing = () => {
               <p>LOC: 24.180°S | 65.299°W</p>
             </div>
             <div className="text-right space-y-0.5">
-              <p className="font-bold tracking-widest text-red-400">// GREMIO_RANK: PLATINUM_II</p>
+              <p className="font-bold tracking-widest text-red-400">// GUILD_RANK: PLATINUM_II</p>
               <p className="hidden sm:block">ACTIVE_QUESTS: [02/02] | CONTRACTS: 47</p>
               <p className="text-emerald-500">● MONITOR_REFRESH: 60Hz</p>
             </div>
           </div>
 
-          {/* TÍTULO PRINCIPAL RESPONSIVO CORREGIDO */}
+          {/* MAIN RESPONSIVE TITLE */}
           <div className="text-center mb-8 z-10 px-2 animate-flicker-ui-safe w-full flex flex-col items-center">
             <span className="bg-neutral-950 text-yellow-400 border border-yellow-500/30 rounded-full text-[8px] xs:text-[10px] font-mono font-bold px-2.5 py-1 uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.15)] select-none">
               [ SELECT_YOUR_QUEST ]
             </span>
             <h2 className="font-arcade mt-4 tracking-wide text-white animate-text-subtle pricing-title-responsive uppercase text-center w-full">
-              PRECIOS
+              PRICING
             </h2>
             <p className="text-neutral-400 font-mono text-[10px] sm:text-[11px] mt-2 max-w-xl mx-auto uppercase tracking-wider">
-              Elegí uno de nuestros servicios
+              Choose one of our services
             </p>
           </div>
 
-          {/* CONTENEDOR DE TARJETAS */}
+          {/* CARDS CONTAINER */}
           <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 px-2 z-10">
             
-            {/* TARJETA 1 - MINIWEB */}
+            {/* CARD 1 - EXPRESS WEB */}
             <div 
               style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
-              className="relative bg-[#020612]/90 backdrop-blur-sm border-2 border-cyan-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] group rounded-sm md:h-[450px] overflow-hidden shrink-0"
+              className="relative bg-[#020612]/90 backdrop-blur-sm border-2 border-cyan-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
             >
               <div className="flex flex-col flex-1 min-h-0">
                 <div className="flex justify-between items-center mb-2 shrink-0">
@@ -139,61 +140,73 @@ const Pricing = () => {
                 </div>
                 
                 <h3 className="font-arcade text-white mb-1 tracking-wide group-hover:text-cyan-400 transition-colors pricing-card-title-responsive shrink-0">
-                  MINIWEB
+                  EXPRESS WEB
                 </h3>
                 
-                {/* CORRECCIÓN: flex-col en celulares para que [PAGO ÚNICO] no salte feo ni toque el borde */}
                 <div className="flex flex-col xs:flex-row xs:items-baseline text-white mt-1 mb-3 border-b border-cyan-900/30 pb-2 shrink-0">
                   <span className="font-bold font-arcade text-yellow-400 pricing-price-responsive">$50.000</span>
-                  <span className="text-neutral-500/80 text-[7px] mt-0.5 xs:mt-0 xs:ml-2 uppercase font-mono font-medium tracking-wide">[PAGO ÚNICO]</span>
+                  <span className="text-neutral-500/80 text-[7px] mt-0.5 xs:mt-0 xs:ml-2 uppercase font-mono font-medium tracking-wide">[ONE-TIME PAYMENT]</span>
                 </div>
                 
-                {/* LISTA CON SCROLL INTEGRADO EN CELULARES */}
+                {/* MOBILE LIST WITH INTEGRATED SCROLL */}
                 <div className="flex-1 overflow-y-auto no-scrollbar pr-1">
                   <ul className="space-y-2.5 text-neutral-200 pricing-fluid-text">
                     <li className="flex items-center space-x-2">
                       <ChevronRight className="text-cyan-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Información sobre tu tienda</span>
+                      <span>Store information & description</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <ChevronRight className="text-cyan-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Datos de contacto y redes</span>
+                      <span>Contact details and social links</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <ChevronRight className="text-cyan-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Hasta 150 imágenes integradas</span>
+                      <span>Up to 150 integrated images</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <ChevronRight className="text-cyan-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Hosting e infraestructura incluidos</span>
+                      <span>Hosting and infrastructure included</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <ChevronRight className="text-cyan-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Diseño completamente personalizado</span>
+                      <span>Fully customized layout</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-4 shrink-0">
-                <div className="text-[8px] sm:text-[9px] text-cyan-600/80 mb-2 font-bold tracking-widest">ENERGY_REQUIRED: [██░░░░░░░░]</div>
+              {/* ACTION BUTTONS */}
+              <div className="mt-4 shrink-0 flex flex-col gap-2">
+                <div className="text-[8px] sm:text-[9px] text-cyan-600/80 mb-0.5 font-bold tracking-widest">ENERGY_REQUIRED: [██░░░░░░░░]</div>
+                
+                {/* NEW PREVIEW DEMO BUTTON */}
+                <a
+                  href="https://demo-web-category.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[11px] tracking-wider bg-transparent border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black shadow-[0_0_15px_rgba(234,179,8,0.1)] transition-all duration-150 uppercase rounded-sm"
+                >
+                  <span className="animate-pulse">View Live Demo</span>
+                </a>
+
+                {/* ORIGINAL REQUEST BUTTON */}
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${miniWebMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[11px] tracking-wider bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black shadow-[0_0_15px_rgba(34,211,238,0.1)] transition-all duration-150 uppercase rounded-sm"
                 >
-                  Solicitar miniweb
+                  Request Express Web
                 </a>
               </div>
               <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-cyan-400" />
               <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-cyan-400" />
             </div>
 
-            {/* TARJETA 2 - SISTEMA CUSTOM */}
+            {/* CARD 2 - CUSTOM SYSTEM */}
             <div 
               style={{ height: window.innerWidth < 768 ? PRICING_SETTINGS.cardHeightMobile : undefined }}
-              className="relative bg-[#06020c]/90 backdrop-blur-sm border-2 border-red-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-red-500 hover:bg-[#0d0517]/90 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group rounded-sm md:h-[450px] overflow-hidden shrink-0"
+              className="relative bg-[#06020c]/90 backdrop-blur-sm border-2 border-red-500/40 p-3.5 sm:p-6 font-mono flex flex-col justify-between transition-all duration-200 hover:border-red-500 hover:bg-[#0d0517]/90 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] group rounded-sm md:h-[500px] overflow-hidden shrink-0"
             >
               <div className="flex flex-col flex-1 min-h-0">
                 <div className="flex justify-between items-center mb-2 shrink-0">
@@ -204,51 +217,56 @@ const Pricing = () => {
                 </div>
                 
                 <h3 className="font-arcade text-white mb-1 tracking-wide group-hover:text-red-400 transition-colors pricing-card-title-responsive shrink-0">
-                  SISTEMA CUSTOM
+                  CUSTOM SYSTEM
                 </h3>
                 
-                {/* CORRECCIÓN: Removemos la etiqueta redundante [PRESUPUESTO] para limpiar espacio lateral */}
                 <div className="flex items-baseline text-white mt-1 mb-3 border-b border-red-900/30 pb-2 shrink-0">
-                  <span className="font-bold font-arcade text-red-400 uppercase pricing-price-responsive">A MEDIDA</span>
+                  <span className="font-bold font-arcade text-red-400 uppercase pricing-price-responsive">TAILORED</span>
                 </div>
 
-                {/* CUERPO CON SCROLL INTEGRADO EN CELULARES */}
+                {/* MOBILE BODY WITH INTEGRATED SCROLL */}
                 <div className="flex-1 overflow-y-auto no-scrollbar pr-1">
                   <p className="text-neutral-300 leading-relaxed mb-3 pricing-fluid-text">
-                    ¿Buscás una infraestructura web robusta, sistemas complejos o el desarrollo de un videojuego interactivo en C# (Unity)?
+                    Looking for a robust web infrastructure, complex systems, or interactive video game development in C# (Unity)?
                   </p>
                   <ul className="space-y-2.5 text-neutral-200 pricing-fluid-text">
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Aplicaciones web autoadministrables</span>
+                      <span>Self-managed web applications</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Bases de datos complejas y seguridad</span>
+                      <span>Complex databases and high security</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Desarrollo de videojuegos interactivos</span>
+                      <span>Interactive video game development</span>
                     </li>
                     <li className="flex items-center space-x-2">
                       <Sword className="text-red-400 w-3.5 h-3.5 shrink-0" />
-                      <span>Lógica avanzada en arquitectura C#</span>
+                      <span>Advanced logic in C# architecture</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-4 shrink-0">
-                <div className="text-[8px] sm:text-[9px] text-red-600/80 mb-2 font-bold tracking-widest">ENERGY_REQUIRED: [██████████]</div>
+              {/* ACTION BUTTONS (Empujados al fondo para simetría con Card 1) */}
+              <div className="mt-4 shrink-0 flex flex-col gap-2">
+                <div className="text-[8px] sm:text-[9px] text-red-600/80 mb-0.5 font-bold tracking-widest">ENERGY_REQUIRED: [██████████]</div>
+                
+                {/* SPACER TO MATCH HEIGHT SYMETRY */}
+                <div className="h-10 w-full opacity-0 pointer-events-none hidden md:block" />
+
+                {/* ORIGINAL REQUEST BUTTON */}
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${customMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center text-center w-full h-10 font-arcade text-[10px] xs:text-[11px] tracking-wider bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-black shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-150 uppercase rounded-sm px-1"
                 >
-                  {/* CORRECCIÓN: Texto adaptativo impecable sin cortes rotos */}
-                  <span className="xs:block hidden">Solicitar presupuesto</span>
-                  <span className="xs:hidden block">Presupuestar</span>
+                  {/* ADAPTIVE TEXT FOR MOBILE LAYOUTS */}
+                  <span className="xs:block hidden">Request a quote</span>
+                  <span className="xs:hidden block">Get Quote</span>
                 </a>
               </div>
               <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-500" />
@@ -257,7 +275,7 @@ const Pricing = () => {
 
           </div>
 
-          {/* PIE DE TERMINAL */}
+          {/* TERMINAL FOOTER */}
           <div className="w-full max-w-4xl font-mono text-[8px] text-neutral-600 mt-8 px-2 flex justify-between select-none z-10 animate-flicker-ui-safe">
             <span>&gt;&gt; LOG_STREAM_INITIALIZED</span>
             <span className="text-cyan-800">BUFFER_STATUS: 100% OPERATIONAL</span>
@@ -266,10 +284,10 @@ const Pricing = () => {
 
         </div>
 
-        {/* CONTROLES FÍSICOS */}
+        {/* PHYSICAL CONTROLS */}
         <div className="absolute bottom-2 right-6 flex items-center space-x-3 z-20 bg-neutral-800/80 px-3 py-1.5 rounded-md border border-neutral-700/50 backdrop-blur-sm">
           <div className="w-2 h-2 rounded-full bg-neutral-600 border border-neutral-900 cursor-pointer active:scale-95" title="Menu" />
-          <div className="w-2 h-2 rounded-full bg-neutral-600 border border-neutral-900 cursor-pointer active:scale-95" title="Ajuste" />
+          <div className="w-2 h-2 rounded-full bg-neutral-600 border border-neutral-900 cursor-pointer active:scale-95" title="Settings" />
           <div className="flex items-center space-x-1 pl-2 border-l border-neutral-700">
             <span className="text-[7px] font-mono text-neutral-500 uppercase tracking-tighter">POWER</span>
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_6px_rgba(16,185,129,0.7)]" />

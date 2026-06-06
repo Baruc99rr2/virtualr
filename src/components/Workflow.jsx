@@ -71,13 +71,13 @@ const Workflow = () => {
           box-shadow: 0 0 8px rgba(244, 114, 182, 0.8), 0 0 15px rgba(34, 211, 238, 0.5) !important;
         }
 
-        /* CORRECCIÓN: Optimizamos el clamp para que baje fluidamente hasta pantallas de 320px sin romperse */
+        /* RESPONSIVE TITLE ADAPTATION */
         .skills-title-responsive {
           font-size: clamp(15px, 4.5vw, 36px);
         }
       `}</style>
 
-      {/* CAPA DE NAVES */}
+      {/* SHIPS LAYER */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-1">
         <div className="retro-space-ship" style={{ left: '7%',  animationDuration: '6s',  animationDelay: '0s' }}>🛸</div>
         <div className="retro-space-ship ship-pink" style={{ left: '22%', animationDuration: '8s',  animationDelay: '3.5s' }}>👾</div>
@@ -89,21 +89,20 @@ const Workflow = () => {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.85)_100%)] pointer-events-none z-2" />
 
-      {/* TÍTULO MODIFICADO */}
+      {/* HEADER SECTION */}
       <div className="text-center mb-10 z-2 w-full px-4 flex flex-col items-center justify-center">
         <span className="bg-neutral-900 text-cyan-400 border border-cyan-500/30 rounded-full h-6 text-[10px] sm:text-xs font-mono font-bold px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(34,211,238,0.15)] select-none">
           [ SYSTEM_SKILL_TREE ]
         </span>
-        {/* CORRECCIÓN: Eliminamos 'whitespace-nowrap' y agregamos un tracking adaptativo */}
         <h2 className="font-arcade mt-4 tracking-normal sm:tracking-wide text-white drop-shadow-[0_0_8px_rgba(6,182,212,0.3)] skills-title-responsive uppercase w-full text-center px-2">
-          Nuestros conocimientos
+          Our Expertise
         </h2>
       </div>
 
-      {/* CONTENEDOR DEL ÁRBOL */}
+      {/* TREE CONTAINER */}
       <div className="w-full max-w-5xl flex flex-col items-center relative z-2">
         
-        {/* NODO CENTRAL */}
+        {/* CENTRAL NODE */}
         <div 
           className={`z-2 mb-10 p-3 bg-[#020712] border-2 font-mono text-center select-none cursor-pointer tracking-wider rounded-sm transition-all duration-200
             ${activeNode === "core" 
@@ -117,7 +116,7 @@ const Workflow = () => {
           </div>
         </div>
 
-        {/* GRILLA DE NODOS */}
+        {/* NODES GRID */}
         <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 lg:gap-6 relative">
           {skills.map((skill) => {
             const isHovered = activeNode === skill.id;

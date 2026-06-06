@@ -2,31 +2,31 @@ import { useEffect, useState } from "react";
 import futabaGif from "../assets/futaba.gif"; 
 
 // ==========================================
-// CONFIGURACIÓN MANUAL PARA CELULARES
-// Modificá estos valores para ajustar el diseño a tu gusto sin tocar el código de abajo.
+// MANUAL SETTINGS FOR MOBILE DEVICES
+// Modify these values to tweak the design to your liking without touching the code below.
 // ==========================================
 const MOBILE_SETTINGS = {
-  containerHeight: "460px",       // ALARGADO: Incrementado a 460px para dar más espacio en celulares
-  fontSizeDefault: "3.4vw",       // Tamaño de letra en pantallas muy chicas/verticales
-  fontSizeWideMobile: "3.2vw",    // Tamaño de letra en celulares un poco más anchos (desde 480px)
+  containerHeight: "460px",       // TALL: Increased to 460px to give more space on mobile devices
+  fontSizeDefault: "3.4vw",       // Font size on very small/vertical screens
+  fontSizeWideMobile: "3.2vw",    // Font size on slightly wider phones (from 480px and up)
 };
 
 const FeatureSection = () => {
-  const fullTitle = "ACERCA DE NOSOTROS";
+  const fullTitle = "ABOUT US";
   const [titleText, setTitleText] = useState("");
   const [titleSpeed, setTitleSpeed] = useState(100);
 
   const fullText = 
     "cat info_base.txt\n" +
-    "Somos un equipo que se adapta a tu presupuesto para ayudarte a digitalizarte, nos apasiona el diseño y el espiritu de emprendedurismo, superacion y esfuerzo, te acompañamos en tu proceso de crecimiento.\n\n" +
+    "We are a team that adapts to your budget to help you go digital. We are passionate about design, craftsmanship, and the spirit of entrepreneurship, self-improvement, and hard work. We stand by you throughout your growth journey.\n\n" +
     "C:\\Users\\AboutUs> cat info_academic.txt\n" +
-    "En 2025 nos graduamos en la UNJu Facultad de Ingenieria, consolidando nuestra profunda pasión por la programación";
+    "In 2025, we graduated from Unju Argentina, consolidating our deep-rooted passion for software development.";
   
   const [typedText, setTypedText] = useState("");
 
-  // EFECTO EFICIENTE: Escritura del título (Corre una sola vez)
+  // EFFICIENT EFFECT: Title typing (Runs only once)
   useEffect(() => {
-    if (titleText === fullTitle) return; // Se clava acá cuando termina de escribir
+    if (titleText === fullTitle) return; // Freezes here when typing finishes
 
     const handleTitleType = () => {
       setTitleText(fullTitle.substring(0, titleText.length + 1));
@@ -36,7 +36,7 @@ const FeatureSection = () => {
     return () => clearTimeout(titleTimer);
   }, [titleText, titleSpeed]);
 
-  // EFECTO EFICIENTE: Escritura del texto de la terminal (Sin setTimeout cíclico ni resets)
+  // EFFICIENT EFFECT: Terminal text typing (No cyclic setTimeout or resets)
   useEffect(() => {
     let textIndex = 0;
     
@@ -45,17 +45,17 @@ const FeatureSection = () => {
         setTypedText(fullText.substring(0, textIndex));
         textIndex++;
       } else {
-        clearInterval(textInterval); // Limpia el intervalo para siempre cuando termina
+        clearInterval(textInterval); // Clears the interval for good when finished
       }
     }, 25);
 
-    return () => clearInterval(textInterval);
+  return () => clearInterval(textInterval);
   }, []);
 
   return (
     <div id="about" className="relative pt-12 pb-20 min-h-[500px] flex flex-col items-center scroll-mt-24 w-full z-10">
       
-      {/* Inyección dinámica de tus parámetros en los estilos */}
+      {/* Dynamic injection of your parameters into styles */}
       <style>{`
         @keyframes subtle-float {
           0%, 100% { transform: translateY(0); }
@@ -65,7 +65,7 @@ const FeatureSection = () => {
           animation: subtle-float 4s ease-in-out infinite;
         }
         
-        /* LOGIC RESIZING: El título se encoje fluidamente */
+        /* LOGIC RESIZING: The title shrinks fluidly */
         .about-title-responsive {
           font-size: clamp(14px, 2.5vw, 36px);
         }
@@ -90,7 +90,7 @@ const FeatureSection = () => {
         }
       `}</style>
 
-      {/* TÍTULO PRINCIPAL CON CLASE RESPONSIVA FLUIDA */}
+      {/* MAIN TITLE WITH FLUID RESPONSIVE CLASS */}
       <div className="text-center mb-6 md:mb-10 select-none h-[40px] flex items-center justify-center w-full px-4">
         <h2 className="font-arcade tracking-wide text-white about-title-responsive whitespace-nowrap">
           {titleText === "" ? "\u00A0" : titleText}
@@ -98,10 +98,10 @@ const FeatureSection = () => {
         </h2>
       </div>
 
-      {/* CONTENEDOR PADRE */}
+      {/* PARENT CONTAINER */}
       <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start justify-center gap-6 px-4 relative">
         
-        {/* PANEL FUTABA */}
+        {/* FUTABA PANEL */}
         <div className="md:sticky md:top-32 h-fit w-full max-w-[160px] sm:max-w-[180px] md:w-1/4 bg-[#0c1c38]/70 border-2 border-cyan-500/30 rounded-lg p-3 flex flex-col items-center justify-center relative overflow-hidden group shadow-[0_0_20px_rgba(34,211,238,0.05)] shrink-0 animate-floating-panel transition-all duration-300 hover:border-cyan-400 z-10 order-1 md:order-none">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent animate-pulse pointer-events-none" />
           
@@ -127,12 +127,12 @@ const FeatureSection = () => {
           </div>
         </div>
 
-        {/* CONTENEDOR POWERSHELL */}
+        {/* POWERSHELL CONTAINER */}
         <div 
           style={{ height: typeof window !== "undefined" && window.innerWidth < 768 ? MOBILE_SETTINGS.containerHeight : undefined }}
           className="w-full max-w-[450px] md:max-w-none md:flex-1 md:h-[450px] rounded-lg overflow-hidden shadow-2xl border border-blue-900/50 shadow-cyan-500/5 flex flex-col min-w-0 order-2 md:order-none shrink-0"
         >
-          {/* Barra superior de PowerShell */}
+          {/* PowerShell Upper Bar */}
           <div className="bg-[#0c1c38] px-3 sm:px-4 py-2 flex justify-between items-center border-b border-blue-950 select-none shrink-0">
             <div className="flex items-center space-x-2 text-[10px] sm:text-xs font-mono text-neutral-400 truncate">
               <span className="text-cyan-400">&gt;_</span>
@@ -145,7 +145,7 @@ const FeatureSection = () => {
             </div>
           </div>
 
-          {/* Cuerpo de la terminal */}
+          {/* Terminal Body */}
           <div className="bg-[#012456] p-4 sm:p-6 font-mono text-neutral-200 leading-relaxed flex-1 text-left relative pb-6 sm:pb-8 powershell-fluid-text overflow-hidden">
             
             <p className="text-neutral-400 mb-4 text-[9px] sm:text-xs border-b border-blue-900/40 pb-2 max-w-[140px] xs:max-w-xs sm:max-w-md select-none">

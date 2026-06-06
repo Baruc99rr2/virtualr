@@ -23,10 +23,10 @@ const Navbar = () => {
   };
 
   const customNavItems = [
-    { label: "Acerca de nosotros", href: "#about" },
-    { label: "Nuestros conocimientos", href: "#skills" },
-    { label: "Precios", href: "#pricing" },
-    { label: "Preguntas Frecuentes", href: "#faq" },
+    { label: "About Us", href: "#about" },
+    { label: "Our Expertise", href: "#skills" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   const scrollToTop = (e) => {
@@ -66,7 +66,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
           
-          {/* LOGO E IDENTIDAD */}
+          {/* LOGO AND IDENTITY */}
         <a 
           href="#" 
           onClick={scrollToTop}
@@ -80,9 +80,9 @@ const Navbar = () => {
               src={logo} 
               alt="SkyTech Logo" 
             />
-            {/* CORRECCIÓN DE PERSISTENCIA TÁCTIL: 
-                - md:group-hover solo activa el brillo continuo con el mouse en PC.
-                - group-active hace que en celular brille SOLO mientras el dedo está presionando. */}
+            {/* TOUCH PERSISTENCE CORRECTION: 
+                - md:group-hover only activates continuous glow with mouse hover on PC.
+                - group-active makes it glow on mobile ONLY while the finger is pressing down. */}
             <div className="absolute inset-0 bg-cyan-500/30 blur-md rounded-full opacity-0 md:group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-150"></div>
           </div>
           <span className="text-xl font-black text-white tracking-wider flex items-center">
@@ -91,7 +91,7 @@ const Navbar = () => {
           </span>
         </a>
 
-          {/* MENU DESKTOP */}
+          {/* DESKTOP MENU */}
           <ul className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
             {customNavItems.map((item, index) => (
               <li key={index} className="relative group">
@@ -110,7 +110,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* BOTÓN DE ACCIÓN ESCRITORIO */}
+          {/* DESKTOP ACTION BUTTON */}
           <div className="hidden lg:flex items-center">
             <a
               href="#contact-hub"
@@ -120,12 +120,12 @@ const Navbar = () => {
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               <span className="flex items-center gap-2">
                 <Terminal size={14} className="text-cyan-400 group-hover:rotate-6 transition-transform" />
-                <span>[ CONTACTO ]</span>
+                <span>[ CONTACT ]</span>
               </span>
             </a>
           </div>
 
-          {/* BOTÓN HAMBURGUESA RETRO NEÓN (CELULARES) */}
+          {/* RETRO NEON HAMBURGER BUTTON (MOBILE) */}
           <div className="lg:hidden flex items-center">
             <button 
               onClick={toggleNavbar} 
@@ -142,17 +142,17 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MENÚ MÓVIL PANTALLA COMPLETA */}
+      {/* FULL-SCREEN MOBILE MENU */}
       {mobileDrawerOpen && (
         <div className="fixed inset-0 z-[9998] bg-[#02020a]/95 backdrop-blur-xl flex flex-col justify-center items-center lg:hidden font-mono">
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05)_0%,transparent_70%)] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
 
           <div className="mb-10 text-center relative z-10">
             <h2 className="text-4xl font-black text-fuchsia-500 tracking-[0.3em] uppercase select-none animate-pulse drop-shadow-[0_0_10px_rgba(217,70,239,0.6)]">
-              = PAUSA =
+              = PAUSE =
             </h2>
             <p className="text-[10px] text-cyan-400 tracking-widest uppercase mt-2 opacity-80">
-              Selecciona una opción para continuar
+              Select an option to continue
             </p>
           </div>
           
@@ -180,7 +180,7 @@ const Navbar = () => {
               onClick={(e) => handleScrollToSection(e, "#contact-hub")}
               className="w-full py-4 rounded text-center block bg-gradient-to-r from-fuchsia-500 to-cyan-500 hover:from-fuchsia-400 hover:to-cyan-400 text-black font-black text-xs uppercase tracking-[0.2em] shadow-[0_0_25px_rgba(217,70,239,0.4)] transition-all duration-200 hover:scale-[1.02]"
             >
-              [ CONTACTO ]
+              [ CONTACT ]
             </a>
           </div>
         </div>

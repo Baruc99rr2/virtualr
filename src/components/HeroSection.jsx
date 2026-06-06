@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const HeroSection = () => {
-  const words = ["DIGITALIZAR.", "AUTOMATIZAR.", "ESCALAR."];
+  const words = ["DIGITIZE.", "AUTOMATE.", "SCALE."];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -86,7 +86,7 @@ const HeroSection = () => {
         <div className="font-arcade text-white leading-relaxed tracking-tight uppercase w-full">
           {/* CORRECCIÓN: Eliminamos 'whitespace-nowrap' para evitar el desborde en celulares angostos */}
           <p className="hero-title-responsive block w-full text-center px-2">
-            Ayudamos a tu negocio a
+            We help your business
           </p>
           
           <div className="mt-4 min-h-[48px] sm:min-h-[64px] flex items-center justify-center w-full">
@@ -99,7 +99,7 @@ const HeroSection = () => {
 
         {/* Subtítulo / Bajada */}
         <p className="mt-8 text-sm sm:text-base text-neutral-400 max-w-2xl font-mono leading-relaxed">
-          // Diseñamos soluciones de software a medida, miniwebs dinámicas y herramientas automatizadas para escalar tu presencia en el entorno digital.
+          // We design custom software solutions, dynamic landing pages, and automated tools to scale your digital presence.
         </p>
 
         {/* COMPONENTE: INTERFAZ TELEMETRÍA ORBITAL */}

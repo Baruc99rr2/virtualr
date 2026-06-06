@@ -7,28 +7,28 @@ const FAQ = () => {
   const faqList = [
     {
       id: "01",
-      question: "¿Cómo se coordina el pago?",
-      answer: "El desarrollo se abona en dos partes: un 50% inicial para dar comienzo al proyecto y el 50% restante al mes siguiente."
+      question: "How is payment coordinated?",
+      answer: "Development is paid in two parts: an initial 50% down payment to kick off the project, and the remaining 50% the following month."
     },
     {
       id: "02",
-      question: "¿Cuánto tardan las entregas?",
-      answer: "Para los módulos estándar (como la Miniweb), el tiempo estimado de entrega es de entre 48 y 72 horas hábiles una vez recibida toda la información."
+      question: "How long do deliveries take?",
+      answer: "For standard modules (such as the Miniweb), the estimated delivery time is between 48 and 72 business hours once all information is received."
     },
     {
       id: "03",
-      question: "¿El precio incluye el dominio?",
-      answer: "El costo del dominio queda a cargo del cliente, pero te asesoramos y acompañamos paso a paso en el proceso de compra para que lo registres a tu nombre de forma rápida y segura o podemos encargarnos nosotros de este proceso."
+      question: "Is the domain included in the price?",
+      answer: "The cost of the domain is the client's responsibility, but we guide and assist you step-by-step through the purchase process so you can register it under your name quickly and securely, or we can handle the entire process for you."
     },
     {
       id: "04",
-      question: "¿Qué tecnologías utilizás?",
-      answer: "Trabajamos con herramientas modernas y de alto rendimiento como Vite, React y Tailwind CSS. Esto garantiza que tu sitio sea ultra rápido, seguro y adaptable a cualquier celular."
+      question: "What technologies do you use?",
+      answer: "We work with modern, high-performance tools like Vite, React, and Tailwind CSS. This ensures your site is ultra-fast, secure, and fully responsive on any mobile device."
     },
     {
       id: "05",
-      question: "¿Se paga algún mantenimiento mensual?",
-      answer: "No es obligatorio. Las actualizaciones de catálogo (precios o stock) son completamente gratuitas. Si a futuro necesitás cambios estructurales, los cotizamos en el momento. También contamos con un servicio de soporte mensual opcional por $6.500 para actualizaciones constantes."
+      question: "Is there any monthly maintenance fee?",
+      answer: "It is not mandatory. Catalog updates (prices or stock) are completely free. If you need structural changes in the future, we quote them at that time. We also offer an optional monthly support service for constant updates."
     }
   ];
 
@@ -77,7 +77,7 @@ const FAQ = () => {
           pointer-events: none;
         }
 
-        /* SISTEMA DE REDUCCIÓN ESCALADA POR DEBAJO DE 1920PX */
+        /* SYSTEM OF SCALED REDUCTION BELOW 1920PX */
         .faq-title-responsive {
           font-size: clamp(20px, 1.8vw, 32px);
         }
@@ -89,17 +89,17 @@ const FAQ = () => {
         }
       `}</style>
 
-      {/* MARCO DEL MONITOR */}
+      {/* MONITOR FRAME */}
       <div className="w-full max-w-5xl bg-[#121613] p-3 sm:p-5 rounded-3xl border-4 border-[#1e2520] shadow-[0_0_50px_rgba(0,0,0,0.9),inset_0_0_20px_rgba(0,0,0,0.8)] relative">
         
-        {/* LA PANTALLA CRT */}
+        {/* CRT SCREEN */}
         <div className="relative w-full rounded-2xl overflow-hidden crt-screen-glow border-2 border-[#090f0a] px-3 py-5 sm:p-6 pixel-grille animate-crt-flicker">
           
           <div className="absolute left-0 bg-gradient-to-b from-transparent via-green-400/20 to-transparent h-20 w-full animate-vbar pointer-events-none z-30 shadow-[0_0_15px_rgba(74,222,128,0.2)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.04)_0%,transparent_70%)] pointer-events-none z-30" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.5)_100%)] pointer-events-none z-30" />
 
-          {/* ENCABEZADO */}
+          {/* HEADER */}
           <div className="text-center mb-6 select-none z-10 relative">
             <div className="inline-flex items-center gap-2 bg-green-950/80 text-green-400 border border-green-500/50 rounded-sm text-[10px] font-mono px-3 py-1 uppercase tracking-widest shadow-[0_0_10px_rgba(34,197,94,0.2)]">
               <Terminal className="w-3 h-3 animate-pulse" />
@@ -107,17 +107,17 @@ const FAQ = () => {
             </div>
             
             <h2 className="font-mono font-black mt-3 tracking-tight text-green-400 uppercase green-phosphor-text animate-glitch faq-title-responsive">
-              &gt; CONSULTAS_F.A.Q
+              &gt; F.A.Q_QUERIES
             </h2>
             <p className="text-green-500/70 font-mono text-[10px] mt-1 max-w-xl mx-auto uppercase tracking-wider">
-              INTERFAZ DE LECTURA DE DATOS
+              DATA READING INTERFACE
             </p>
           </div>
 
-          {/* LAYOUT ENTORNO RPG */}
+          {/* RPG ENVIRONMENT LAYOUT */}
           <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5 z-10 relative font-mono items-start">
             
-            {/* PANEL IZQUIERDO: SELECTOR DE PREGUNTAS */}
+            {/* LEFT PANEL: QUESTION SELECTOR */}
             <div className="md:col-span-5 flex flex-col gap-1.5 w-full">
               <div className="text-[9px] text-green-600/80 font-bold px-1 mb-0.5 tracking-widest uppercase">// INDEX_REGISTER</div>
               {faqList.map((faq, index) => {
@@ -151,11 +151,10 @@ const FAQ = () => {
               })}
             </div>
 
-            {/* PANEL DERECHO: MONITOR DE DETALLE (RESPUESTA) */}
+            {/* RIGHT PANEL: DETAIL MONITOR (ANSWER) */}
             <div className="md:col-span-7 flex flex-col w-full h-full">
               <div className="text-[9px] text-green-600/80 font-bold px-1 mb-0.5 tracking-widest uppercase">// OUTPUT_BUFFER</div>
               
-              {/* min-h optimizado de forma compacta y h-auto para prevenir desbordes de cajas */}
               <div className="relative flex-1 min-h-[180px] h-auto bg-black/40 border border-green-900/80 p-4 flex flex-col justify-between rounded-sm shadow-[inset_0_0_30px_rgba(0,0,0,0.9)]">
                 
                 <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-green-600" />
@@ -178,7 +177,6 @@ const FAQ = () => {
                     <div className="absolute inset-0 bg-green-500/40 w-1/4 animate-vbar" style={{ animationDuration: '2s' }} />
                   </div>
 
-                  {/* p-2.5 para compactar la caja interna del texto */}
                   <p key={activeIndex} className="text-green-400/90 leading-relaxed tracking-wide font-mono bg-green-950/15 p-2.5 border border-green-900/25 rounded-sm shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] faq-desc-text">
                     {faqList[activeIndex].answer}
                   </p>
